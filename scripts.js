@@ -1,6 +1,6 @@
-const goBtn = document.getElementById('go-btn');
 
 //add event listener to go-btn
+const goBtn = document.getElementById('go-btn');
 goBtn.addEventListener('click', () => {
 
     let height = document.getElementById('height').value;
@@ -10,6 +10,8 @@ goBtn.addEventListener('click', () => {
     
 });
 
+
+// begin creating pyramid
 function createPyramid(height, direction) {
     let pyramid = document.getElementById('pyramid');
 
@@ -17,6 +19,7 @@ function createPyramid(height, direction) {
     pyramid.innerHTML = "";
     pyramid.style.transform = "none";
 
+    // generates respective pyramid according to direction
     switch (direction) {
         case 'Regular':
             generateHorizontalPyramid(height);
@@ -38,32 +41,32 @@ function createPyramid(height, direction) {
 }
 
 function generateHorizontalPyramid(height) {
-        // set height for each row
+        // 1. determine height for each row
         const root = document.documentElement;
         root.style.setProperty('--height', height);
     
-        // calculate columns for pryamid
+        // 2. calculate columns for pryamid
         let columns = 2 * height - 1;
     
-        //calculate width of each column
+        // 3. calculate width of each column
         root.style.setProperty('--py-columns', columns);
     
-        // create amount of rows for regular pyramid
+        // 4. create amount of rows for regular pyramid
         for (let i = 1; i <= height; i++) {
     
-            // create a row
+            // a. create a row
             const pyRow = document.createElement('div');
             pyRow.setAttribute('class', 'py-row');
     
-            // determine spaces and characters
+            // b. determine spaces and characters
             let spacers = height - i;
             let characters = columns - (2* spacers);
     
-            // add spacers to left
+            // c. add spacers to left
             generateElements(spacers, "spacer", pyRow);
-            // add characters to pyramid
+            // d. add characters to pyramid
             generateElements(characters, "character", pyRow);
-            // add spacers to right
+            // e. add spacers to right
             generateElements(spacers, "spacer", pyRow);
     
             document.getElementById('pyramid').append(pyRow);
@@ -71,17 +74,18 @@ function generateHorizontalPyramid(height) {
 }
 
 function generateVerticalPyramid(height) {
-    // set columns
+    // 1. determine columns for row
     const root = document.documentElement;
     root.style.setProperty('--py-columns', height);
 
-    // calculate rows for pryamid
+    // 2. calculate rows for pryamid
     let rows = 2 * height - 1;
 
-    //calculate width of each column
+    // 3. calculate width of each column
     root.style.setProperty('--height', rows);
 
     for (let i = 1; i <= rows; i++) {
+        // a. create a pyramid row for columns
         const pyRow = document.createElement('div');
         pyRow.setAttribute('class', 'py-row');
 
@@ -93,13 +97,13 @@ function generateVerticalPyramid(height) {
             generateElements(height - (i - height), 'character', pyRow);
             generateElements(i - height, "spacer", pyRow);
         }
-        // create bottom half
 
         document.getElementById('pyramid').append(pyRow);
     }
 } 
 
 function generateElements(num, attribute, row) {
+    // automated creating multiple of same elements
     for (let i = 0; i < num; i++) {
         const spacer = document.createElement('div');
         spacer.setAttribute('class', attribute);

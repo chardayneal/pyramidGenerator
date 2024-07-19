@@ -22,6 +22,7 @@
 }
 #go-btn {
     width: 75px;
+    font-weight: 600;
 }
 
 /* ------ PYRAMID HEADING -------- */
@@ -38,7 +39,6 @@
     width: 100%;
     margin: 0 auto;
     height: var(--pyContainerHeight);
-    
     box-sizing: border-box;
 }
 .py-row {
@@ -48,12 +48,8 @@
     justify-content: space-between;
 }
 
-.spacer {
-    height: 100%;
-}
 .character {
-    background-color: orange;
-   
+    background-color: orange; 
 }
 
 .spacer,
