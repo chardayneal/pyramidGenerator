@@ -5,24 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pyramid Generator</title>
     <link rel="stylesheet" href="./styles.css">
-    <script src="./script.js" defer></script>
+    <script src="./scripts.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <section>
+    <section class="py-heading">
         <h1>Generate A Pyramid</h1>
         <h3>Select a direction</h3>
-        <select id="direction" name="direction">
-            <option >Regular</option>
-            <option>Inverted</option>
-            <!-- <option>Start Left</option> -->
-            <option>Start Right</option>
-        </select>
-        <input  id="height" type="number" step="1" min="3" max="25" value="3">
-        <button id="go-btn">Go!</button>
+        <div class="py-form">
+            <div class="py-direction">
+                <label for="direction">Pyramid Direction: </label>
+                <select id="direction" name="direction">
+                    <option>Regular</option>
+                    <option>Inverted</option>
+                    <option>Start Left</option>
+                    <option>Start Right</option>
+                </select>
+            </div>
+            <div class="py-height">
+                <label for="height">Pyramid Height: </label>
+                <input  id="height" type="number" step="1" min="3" max="25" value="3">
+            </div>
+            <button id="go-btn">Go!</button>
+        </div>
     </section>
-    <div id="pyramid"></div>
+    <section class="pyramid-row">
+        <div id="pyramid"></div>
+    </section>
 </body>
 </html>

@@ -1,3 +1,63 @@
+:root {
+    --height: 0;
+    --pyContainerHeight: 100%;
+    --py-columns: 0;
+}
+
 * {
     font-family: 'Poppins', sans-serif;
+}
+
+
+/* ------ PYRAMID HEADING -------- */
+
+.py-heading {
+    width: 70%;
+    margin: 1rem auto;
+    text-align: center;
+}
+.py-form {
+    display: flex;
+    justify-content: space-between;
+}
+#go-btn {
+    width: 75px;
+}
+
+/* ------ PYRAMID HEADING -------- */
+.pyramid-row {
+    width: 700px;
+    height: 700px;
+    border: 1px solid black;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+
+#pyramid{
+    width: 100%;
+    margin: 0 auto;
+    height: var(--pyContainerHeight);
+    
+    box-sizing: border-box;
+}
+.py-row {
+    height: calc(var(--pyContainerHeight) / var(--height));
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+}
+
+.spacer {
+    height: 100%;
+}
+.character {
+    background-color: orange;
+   
+}
+
+.spacer,
+.character {
+    width: calc(100% / var(--py-columns));
+    border: 1px solid black;
 }
